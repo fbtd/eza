@@ -628,7 +628,7 @@ impl<'dir> File<'dir> {
     /// will be returned.  The directory size is cached for recursive directory
     /// listing.
     #[cfg(unix)]
-    fn recursive_directory_size(&self) -> RecursiveSize {
+    pub fn recursive_directory_size(&self) -> RecursiveSize {
         if self.is_directory() {
             let key = (
                 self.metadata().map_or(0, MetadataExt::dev),
